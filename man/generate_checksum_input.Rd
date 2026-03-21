@@ -12,5 +12,4 @@ outdated content. Good inputs are either publication dates extracted from
 official publisher sites or APIs or any single time series from a database,
 because opentsi definition all time series of the same dataset must
 have the same publication date.
-@importFrom kofdata get_time_series
 }

@@ -3,7 +3,7 @@
 #' Fetches vintage data from the kofdata R package, filters for the most recent vintage of specific
 #' indicators, and cleans the resulting names.
 #'
-#' @importFrom kofdata get_collection
+#' @importFrom kofdata get_time_series
 #' @param key A character string of the KOF set key to fetch.
 #' @param ids A character vector of indicator IDs to extract (e.g., c("coincident", "leading")).
 #'

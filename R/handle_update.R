@@ -40,7 +40,7 @@ handle_update <- function() {
 #' official publisher sites or APIs or any single time series from a database,
 #' because opentsi definition all time series of the same dataset must
 #' have the same publication date.
-#'  @importFrom kofdata get_time_series
+#' @importFrom kofdata get_time_series
 generate_checksum_input <- function(){
  baro <- get_time_series("ch.kof.barometer")$ch.kof.barometer
   # needs to return an r object
