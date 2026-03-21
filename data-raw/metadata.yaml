@@ -8,14 +8,14 @@
 
 # Dataset identity (required)
 # These form the first three segments of every key
-country: ""   # ISO 3166-1 alpha-2 code (e.g., "ch", "de", "us")
-provider: ""  # short identifier (e.g., "adecco", "seco")
-dataset: ""   # short identifier (e.g., "sjmi", "gdp")
+country: "ch"   # ISO 3166-1 alpha-2 code (e.g., "ch", "de", "us")
+provider: "kof"  # short identifier (e.g., "adecco", "seco")
+dataset: "barometer"   # short identifier (e.g., "sjmi", "gdp")
 
 # Dataset title (required)
 # At minimum, provide English. Add other languages as needed.
 title:
-  en: ""
+  en: "KOF Barometer"
   # de: ""
   # fr: ""
 

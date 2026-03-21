@@ -16,21 +16,34 @@ library(kofdata)
 library(data.table)
 library(tsbox)
 
-global <- get_collection("globalbaro_vintages")
-names(global) <- gsub("globalbaro_","",names(global))
-names(global) <- sub("_", "\\.", names(global))
-class(global) <- c(class(global), "tslist")
-release_dates <- rep(seq(as.Date("2020-01-10"),
-                         by = "1 month",
-                         length.out = length(global)/2),2)
-vintages_dt <- create_vintage_dt(release_dates, global)
+baro <- kofdata::get_collection("baro_vintages_monthly")
+names(baro) <- rep("barometer", length(baro))
+class(baro) <- c(class(baro), "tslist")
+release_dates <- rep(seq(as.Date("2014-04-10"),
+                     by = "1 month",
+                     length.out = length(baro)),2)
+vintages_dt <- create_vintage_dt(release_dates, baro)
 head(vintages_dt)
 
+
 ## Example Step 3, Import History to Archive
+library(deloRean)
+
+vintages_dt <- create_vintage_dt(release_dates, baro)
+head(vintages_dt)
+
+# getwd() prints NULL ?
+# setwd("~/KOF_Lab/opentsi/ch.kof.barometer")
 archive_import_history(vintages_dt, repository_path = ".")
 
+# write process data done (vignette 2)
+# done 
 
+# write metadata (vignette 3)
+# done 
 
+#  automation (vignette 4)
+# for this, handle_update needs to be written -> here use checksum functions from opentimeseries
 
-
+# after this, load devtools, load_all(), check(), then install()
 
