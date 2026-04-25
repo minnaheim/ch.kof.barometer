@@ -1,0 +1,29 @@
+{
+  "country": "ch",
+  "provider": "kof",
+  "dataset": "barometer",
+  "title": {
+    "en": "KOF Barometer"
+  },
+  "source_name": {
+    "en": ""
+  },
+  "source_url": "https://",
+  "dataset_frequency": "M",
+  "units": {
+    "all": {
+      "en": ""
+    }
+  },
+  "aggregate": {
+    "all": "mean"
+  },
+  "dim_order": "idx_type",
+  "hierarchy": {
+    "idx_type": "idx"
+  },
+  "labels": {
+    "dimnames": {}
+  },
+  "update_checksum": "3f94912c2a09e058b7841fc00ab19922972a814efa5947b5cde0ddbe8589f3c0"
+}
