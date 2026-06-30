@@ -51,10 +51,9 @@ archive_seal(checksum_input)
 library(digest)
 library(kofdata)
 handle_update()
- 
+
 # automation
 # done
 
 
-
-
+devtools::build_readme()
