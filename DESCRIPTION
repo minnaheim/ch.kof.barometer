@@ -9,10 +9,10 @@ Description: The ch.kof.barometer package provides versioned time series
     that sources the data from its original provider.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
-Imports: 
+Imports:
     desc,
     opentimeseries,
-    kofdata,
+    tsdbapi,
     digest
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

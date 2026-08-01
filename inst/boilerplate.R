@@ -44,13 +44,13 @@ devtools::check()
 devtools::install()
 
 # finish archive_seal
-checksum_input <- generate_checksum_input()
+key <- Sys.getenv("TSDBAPI")
+checksum_input <- generate_checksum_input(key = key)
 archive_seal(checksum_input)
 
 # check handle data and process data
 library(digest)
-library(kofdata)
-handle_update()
+handle_update(key = key)
 
 # automation
 # done

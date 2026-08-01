@@ -2,19 +2,17 @@
 % Please edit documentation in R/process_data.R
 \name{process_data}
 \alias{process_data}
-\title{Process KOF Vintage Data into Time Series List (tsl)}
+\title{Process KOF Barometer Data into idx.csv}
 \usage{
-process_data(key, ids = NULL)
+process_data(key)
 }
 \arguments{
-\item{key}{A character string of the KOF set key to fetch.}
-
-\item{ids}{A character vector of indicator IDs to extract (e.g., c("coincident", "leading")).}
+\item{key}{API key for the KOF Time Series Database.}
 }
 \value{
-A named list of ts objects (tsl) with cleaned names in the key.id format
+Invisibly returns the output file path.
 }
 \description{
-Fetches vintage data from the kofdata R package, filters for the most recent vintage of specific
-indicators, and cleans the resulting names.
+Fetches the most recent vintage of the KOF Barometer from the KOF Time
+Series Database and writes it to \code{data-raw/csv/idx.csv}.
 }

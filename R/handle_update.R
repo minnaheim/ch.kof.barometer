@@ -5,10 +5,11 @@
 #'
 #' @importFrom opentimeseries is_update_needed update_checksum
 #' @importFrom digest digest
+#' @param key API key for the KOF Time Series Database.
 #' @export
-handle_update <- function() {
+handle_update <- function(key) {
 
-  checksum_input <- generate_checksum_input()
+  checksum_input <- generate_checksum_input(key = key)
 
   print(is_update_needed(checksum_input))
   if (!is_update_needed(checksum_input)) {
@@ -20,12 +21,12 @@ handle_update <- function() {
   # that returns the most recent version of a time series
   # from its original provider
   # Store checksum after successful update
-   
+
   new_hash <- digest(checksum_input, algo = "sha256")
-  
+
   upd <- update_checksum(new_hash)
   if(upd){
-    process_data("kofbarometer", ids = c("barometer"))
+    process_data(key = key)
   } else {
     message("Checksum initialized. Data untouched.")
   }
@@ -40,9 +41,11 @@ handle_update <- function() {
 #' official publisher sites or APIs or any single time series from a database,
 #' because opentsi definition all time series of the same dataset must
 #' have the same publication date.
-#' @importFrom kofdata get_time_series
-generate_checksum_input <- function(){
- baro <- get_time_series("ch.kof.barometer")$ch.kof.barometer
+#' @importFrom tsdbapi read_ts set_config
+#' @param key API key for the KOF Time Series Database.
+generate_checksum_input <- function(key){
+  tsdbapi::set_config(api_key = key)
+  baro <- tsdbapi::read_ts("ch.kof.barometer")[["ch.kof.barometer"]]
   # needs to return an r object
   return(baro)
 }
